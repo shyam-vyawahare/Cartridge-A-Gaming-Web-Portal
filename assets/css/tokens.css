@@ -1,0 +1,50 @@
+/* ==========================================================================
+   CARTRIDGE — DESIGN TOKENS
+   Single source of truth for color, type, and spacing.
+   Every other CSS file should reference these variables — no hardcoded
+   hex values or font names outside this file.
+   ========================================================================== */
+
+:root {
+
+  /* ---------- Color ---------- */
+  --color-bg-base:        #1A1633; /* Deep Indigo — base background / cabinet shadow */
+  --color-bg-panel:       #241E45; /* Panel Purple — cards / surfaces */
+  --color-accent-primary: #FF3D7F; /* Marquee Pink — primary accent, CTAs */
+  --color-accent-secondary: #FFC145; /* Marquee Gold — secondary accent, highlights, "new" */
+  --color-text:           #F2EFFF; /* Lavender White — body text */
+
+  /* TODO: add category stripe colors once retro category palette is finalized
+     e.g. --color-category-puzzle, --color-category-brain-teaser, --color-category-retro */
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Press Start 2P', cursive;      /* Sparing use — hero headline, category tags only */
+  --font-body:    'Space Grotesk', sans-serif;     /* Default body copy, UI labels */
+  --font-utility: 'JetBrains Mono', monospace;     /* Stats, level numbers, data */
+
+  /* Type scale */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-md:   1.25rem;   /* 20px */
+  --text-lg:   1.75rem;   /* 28px */
+  --text-xl:   2.5rem;    /* 40px */
+  --text-2xl:  3.5rem;    /* 56px — hero headline scale */
+
+  /* ---------- Spacing ---------- */
+  --space-xs:  0.5rem;   /* 8px */
+  --space-sm:  1rem;     /* 16px */
+  --space-md:  1.5rem;   /* 24px */
+  --space-lg:  2.5rem;   /* 40px */
+  --space-xl:  4rem;     /* 64px */
+
+  /* ---------- Radius / Shape ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* ---------- Motion ---------- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+}
