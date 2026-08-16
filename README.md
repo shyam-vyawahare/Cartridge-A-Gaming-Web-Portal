@@ -13,21 +13,21 @@ This project is being built incrementally, one file/feature at a time. Nothing h
 
 - [ ] Landing page (marquee hero, gamer-centric copy, "Play Now" CTA)
 - [ ] One-time device-detection modal (mobile vs desktop, remembered via localStorage)
-- [ ] Dashboard — cartridge-style game tiles, sorted by category (Puzzle, Brain Teaser, Retro)
+- [ ] Dashboard - cartridge-style game tiles, sorted by category (Puzzle, Brain Teaser, Retro)
 - [ ] Hover lift/glow effect on tiles (desktop only)
 - [ ] Fully responsive layout (mobile + desktop)
 - [ ] At least 1–2 playable puzzle games (in-browser)
 - [ ] Persistent nav / tab bar across pages
-- [ ] Tab: Featured Web Games — *Coming Soon* placeholder
-- [ ] Tab: Game Solutions — *Coming Soon* placeholder
-- [ ] Tab: Gameplay — *Coming Soon* placeholder
+- [ ] Tab: Featured Web Games - *Coming Soon* placeholder
+- [ ] Tab: Game Solutions - *Coming Soon* placeholder
+- [ ] Tab: Gameplay - *Coming Soon* placeholder
 - [ ] `games.json` driven tile rendering (add a game without touching HTML)
 
 ---
 
 ## 🎨 Design Identity
 
-**Concept:** Arcade Marquee — game tiles styled as cartridges, hero styled as a glowing marquee lightbox.
+**Concept:** Arcade Marquee - game tiles styled as cartridges, hero styled as a glowing marquee lightbox.
 
 | Token | Value | Use |
 |---|---|---|
@@ -81,8 +81,8 @@ gaming-website/
 
 ## 🛠️ Tech Stack
 
-- **HTML / CSS / vanilla JavaScript** — no framework, no build step
-- **No backend required for V1** — all games run client-side, game metadata served from a static `games.json`
+- **HTML / CSS / vanilla JavaScript** - no framework, no build step
+- **No backend required for V1** - all games run client-side, game metadata served from a static `games.json`
 - Designed for **zero-config static hosting**: GitHub Pages, Netlify, Vercel, or Cloudflare Pages
 
 ## ▶️ Running Locally
@@ -109,14 +109,14 @@ Since this is a static site, deployment is a drag-and-drop / git-push affair:
 ## 🗺️ Future Versions (Post-V1)
 
 - Desktop-specific games (beyond mobile-responsive ports)
-- Featured Web Games — real external links
-- Game Solutions — game → level → solution browsing
-- Gameplay — curated playthrough/video links
+- Featured Web Games - real external links
+- Game Solutions - game → level → solution browsing
+- Gameplay - curated playthrough/video links
 - Possible backend for accounts, saved progress, leaderboards
 
 ---
 
 ## 🤝 Contributing / Development Notes
 
-This repo is being built one file at a time as a learning + portfolio project. Structure and naming may shift as features are added — check this README's roadmap checklist for current status before assuming a feature exists.
+This repo is being built one file at a time as a learning + portfolio project. Structure and naming may shift as features are added - check this README's roadmap checklist for current status before assuming a feature exists.
 
