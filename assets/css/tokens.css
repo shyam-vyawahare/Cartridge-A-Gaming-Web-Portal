@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CARTRIDGE — DESIGN TOKENS
+   CARTRIDGE - DESIGN TOKENS
    Single source of truth for color, type, and spacing.
    Every other CSS file should reference these variables — no hardcoded
    hex values or font names outside this file.
