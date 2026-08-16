@@ -1,0 +1,166 @@
+/* ==========================================================================
+   CARTRIDGE - COMPONENTS
+   Shared UI pieces used across pages: nav, buttons, cartridge tiles, modal.
+   ========================================================================== */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-base);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-accent-primary);
+  color: var(--color-bg-base);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 61, 127, 0.4);
+}
+
+.btn--large {
+  font-size: var(--text-md);
+  padding: var(--space-sm) var(--space-lg);
+}
+
+/* ---------- Nav ---------- */
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-bg-panel);
+}
+
+.site-nav__logo {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-accent-primary);
+}
+
+.site-nav__tabs {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.site-nav__tab {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  padding: var(--space-xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.site-nav__tab:hover,
+.site-nav__tab--active {
+  background-color: var(--color-bg-base);
+  color: var(--color-accent-secondary);
+}
+
+/* TODO: add mobile nav variant (hamburger/drawer) once device-detect logic is wired up */
+
+/* ---------- Cartridge Tile ---------- */
+/* Signature element: shaped like a game cartridge - flat bottom, notched top */
+.cartridge-tile {
+  position: relative;
+  background-color: var(--color-bg-panel);
+  border-radius: var(--radius-md) var(--radius-md) var(--radius-sm) var(--radius-sm);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cartridge-tile::before {
+  /* Notch at top of cartridge - purely decorative */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 8px;
+  background-color: var(--color-bg-base);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.cartridge-tile__thumbnail {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.cartridge-tile__label {
+  padding: var(--space-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+/* Category stripe - color varies by data-category attribute, set inline or via JS */
+.cartridge-tile[data-category="puzzle"] { border-top: 4px solid var(--color-accent-primary); }
+.cartridge-tile[data-category="brain-teaser"] { border-top: 4px solid var(--color-accent-secondary); }
+/* TODO: add retro category stripe color once finalized */
+
+/* Hover lift - desktop only, gated by a .has-hover class added via JS device detection */
+.has-hover .cartridge-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Modal ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(26, 22, 51, 0.85);
+  z-index: 100;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__content {
+  background-color: var(--color-bg-panel);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal__title {
+  margin-bottom: var(--space-xs);
+}
+
+.modal__subtitle {
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.modal__actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+/* ---------- Coming Soon badge ---------- */
+/* Used across placeholder tabs (Featured Web Games, Game Solutions, Gameplay) */
+.coming-soon {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  border: 1px solid var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  padding: 2px var(--space-xs);
+  }
