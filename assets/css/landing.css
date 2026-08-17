@@ -1,0 +1,93 @@
+/* ==========================================================================
+   CARTRIDGE - LANDING PAGE
+   Hero (marquee lightbox) layout + feature preview strip.
+   Page-specific only - shared styles (buttons, nav) live in components.css.
+   ========================================================================== */
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: var(--space-xl) var(--space-md);
+  /* Marquee lightbox glow - soft radial pink/gold behind the headline */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 61, 127, 0.15) 0%,
+    rgba(255, 193, 69, 0.08) 35%,
+    transparent 70%
+  );
+}
+
+.hero__eyebrow {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-accent-primary);
+  text-shadow: 0 0 24px rgba(255, 61, 127, 0.6);
+  margin-bottom: var(--space-sm);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.hero__description {
+  max-width: 560px;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  opacity: 0.85;
+  margin-bottom: var(--space-lg);
+}
+
+/* ---------- Feature Preview Strip ---------- */
+.feature-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* TODO: style .feature-preview__card once dashboard tiles exist to preview here */
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  padding: var(--space-md);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+/* ---------- Responsive ---------- */
+/* Mobile: shrink display headline so "CARTRIDGE" doesn't wrap awkwardly at Press Start 2P scale */
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: var(--text-lg);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-base);
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding: var(--space-lg) var(--space-sm);
+  }
+    }
