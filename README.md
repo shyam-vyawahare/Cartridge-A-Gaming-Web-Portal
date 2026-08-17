@@ -11,7 +11,7 @@ This project is being built incrementally, one file/feature at a time. Nothing h
 
 ### V1 Roadmap Checklist
 
-- [ ] Landing page (marquee hero, gamer-centric copy, "Play Now" CTA)
+- [x] Landing page (marquee hero, gamer-centric copy, "Play Now" CTA)
 - [ ] One-time device-detection modal (mobile vs desktop, remembered via localStorage)
 - [ ] Dashboard - cartridge-style game tiles, sorted by category (Puzzle, Brain Teaser, Retro)
 - [ ] Hover lift/glow effect on tiles (desktop only)
