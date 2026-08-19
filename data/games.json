@@ -1,0 +1,26 @@
+[
+  {
+    "id": "puzzle-01",
+    "title": "Placeholder Puzzle 1",
+    "category": "puzzle",
+    "thumbnail": "assets/images/thumbnails/placeholder.jpg",
+    "path": "games/puzzle/game-1/index.html",
+    "platform": "both"
+  },
+  {
+    "id": "puzzle-02",
+    "title": "Placeholder Puzzle 2",
+    "category": "puzzle",
+    "thumbnail": "assets/images/thumbnails/placeholder.jpg",
+    "path": "games/puzzle/game-2/index.html",
+    "platform": "both"
+  },
+  {
+    "id": "brain-teaser-01",
+    "title": "Placeholder Brain Teaser 1",
+    "category": "brain-teaser",
+    "thumbnail": "assets/images/thumbnails/placeholder.jpg",
+    "path": "games/brain-teaser/game-1/index.html",
+    "platform": "both"
+  }
+]
