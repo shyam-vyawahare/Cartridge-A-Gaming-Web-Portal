@@ -1,0 +1,85 @@
+/* ==========================================================================
+   CARTRIDGE - DASHBOARD
+   Layout for the game hub: category rows, tile grid, section dividers.
+   Tile appearance itself (.cartridge-tile) lives in components.css -
+   this file only handles dashboard-specific layout.
+   ========================================================================== */
+
+/* ---------- Page Header ---------- */
+.dashboard__header {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+}
+
+.dashboard__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-xs);
+}
+
+.dashboard__subtitle {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+/* ---------- Category Sections ---------- */
+.category {
+  padding: 0 var(--space-lg) var(--space-xl);
+}
+
+.category__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.category__divider::before,
+.category__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-bg-panel);
+}
+
+.category__label {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent-secondary);
+  white-space: nowrap;
+}
+
+/* ---------- Tile Grid ---------- */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Empty state (e.g. Retro category with no games yet) */
+.tile-grid:has(.coming-soon) {
+  display: block;
+  padding: var(--space-md);
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .dashboard__title {
+    font-size: var(--text-md);
+  }
+
+  .category {
+    padding: 0 var(--space-sm) var(--space-lg);
+  }
+
+  .tile-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-sm);
+  }
+  }
