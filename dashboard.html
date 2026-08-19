@@ -48,18 +48,8 @@
       <div class="category__divider">
         <span class="category__label">Insert Coin - Puzzle</span>
       </div>
-      <!-- dashboard.js will populate this grid from data/games.json in a future task -->
-      <div class="tile-grid" id="puzzle-tiles">
-        <!-- TODO: remove hardcoded placeholder tiles once dashboard.js renders from games.json -->
-        <div class="cartridge-tile" data-category="puzzle">
-          <img class="cartridge-tile__thumbnail" src="assets/images/thumbnails/placeholder.jpg" alt="">
-          <p class="cartridge-tile__label">Placeholder Puzzle 1</p>
-        </div>
-        <div class="cartridge-tile" data-category="puzzle">
-          <img class="cartridge-tile__thumbnail" src="assets/images/thumbnails/placeholder.jpg" alt="">
-          <p class="cartridge-tile__label">Placeholder Puzzle 2</p>
-        </div>
-      </div>
+      <!-- dashboard.js renders tiles here from data/games.json -->
+      <div class="tile-grid" id="puzzle-tiles"></div>
     </section>
 
     <!-- ================= CATEGORY: BRAIN TEASER ================= -->
@@ -67,13 +57,8 @@
       <div class="category__divider">
         <span class="category__label">Insert Coin - Brain Teaser</span>
       </div>
-      <div class="tile-grid" id="brain-teaser-tiles">
-        <!-- TODO: remove hardcoded placeholder tiles once dashboard.js renders from games.json -->
-        <div class="cartridge-tile" data-category="brain-teaser">
-          <img class="cartridge-tile__thumbnail" src="assets/images/thumbnails/placeholder.jpg" alt="">
-          <p class="cartridge-tile__label">Placeholder Brain Teaser 1</p>
-        </div>
-      </div>
+      <!-- dashboard.js renders tiles here from data/games.json -->
+      <div class="tile-grid" id="brain-teaser-tiles"></div>
     </section>
 
     <!-- ================= CATEGORY: RETRO ================= -->
@@ -81,10 +66,8 @@
       <div class="category__divider">
         <span class="category__label">Insert Coin - Retro</span>
       </div>
-      <!-- TODO: no retro games in V1 build yet - grid stays empty until content exists -->
-      <div class="tile-grid" id="retro-tiles">
-        <p class="coming-soon">Coming Soon</p>
-      </div>
+      <!-- dashboard.js renders "Coming Soon" here until retro entries exist in games.json -->
+      <div class="tile-grid" id="retro-tiles"></div>
     </section>
 
   </main>
@@ -97,7 +80,7 @@
   <!-- Scripts -->
   <script src="assets/js/nav.js" defer></script>
   <script src="assets/js/device-detect.js" defer></script>
-  <!-- TODO: add assets/js/dashboard.js once tile-rendering-from-JSON task starts -->
+  <script src="assets/js/dashboard.js" defer></script>
 
 </body>
 </html>
