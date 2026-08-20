@@ -1,26 +1,26 @@
 [
   {
     "id": "puzzle-01",
-    "title": "Placeholder Puzzle 1",
+    "title": "Memory Match",
     "category": "puzzle",
-    "thumbnail": "assets/images/thumbnails/placeholder.jpg",
+    "thumbnail": "assets/images/thumbnails/memory-match.jpg",
     "path": "games/puzzle/memory-match/index.html",
     "platform": "both"
   },
   {
     "id": "puzzle-02",
-    "title": "Placeholder Puzzle 2",
+    "title": "Number Slide",
     "category": "puzzle",
     "thumbnail": "assets/images/thumbnails/placeholder.jpg",
-    "path": "games/puzzle/game-2/index.html",
+    "path": "games/puzzle/number-slide/index.html",
     "platform": "both"
   },
   {
     "id": "brain-teaser-01",
-    "title": "Placeholder Brain Teaser 1",
+    "title": "Word Scramble",
     "category": "brain-teaser",
     "thumbnail": "assets/images/thumbnails/placeholder.jpg",
-    "path": "games/brain-teaser/game-1/index.html",
+    "path": "games/brain-teaser/word-scramble/index.html",
     "platform": "both"
   }
 ]
