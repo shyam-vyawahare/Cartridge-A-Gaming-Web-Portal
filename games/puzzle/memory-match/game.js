@@ -35,6 +35,20 @@
   }
 
   /**
+   * Keeps a card's aria-label in sync with its visual state, so screen
+   * reader users get the same information sighted users get from the flip.
+   */
+  function updateCardLabel(card) {
+    if (card.classList.contains("card--matched")) {
+      card.setAttribute("aria-label", "Matched card, " + card.getAttribute("data-symbol"));
+    } else if (card.classList.contains("card--flipped")) {
+      card.setAttribute("aria-label", "Card showing " + card.getAttribute("data-symbol"));
+    } else {
+      card.setAttribute("aria-label", "Memory card, face down");
+    }
+  }
+
+  /**
    * Builds one card DOM element for a given symbol
    */
   function buildCard(symbol, index) {
@@ -44,13 +58,14 @@
     card.setAttribute("data-index", index);
     card.setAttribute("role", "button");
     card.setAttribute("tabindex", "0");
-    card.setAttribute("aria-label", "Memory card, face down");
 
     card.innerHTML =
       '<div class="card__inner">' +
       '<div class="card__face card__face--back"></div>' +
       '<div class="card__face card__face--front">' + symbol + "</div>" +
       "</div>";
+
+    updateCardLabel(card);
 
     card.addEventListener("click", function () {
       handleCardClick(card);
@@ -78,6 +93,7 @@
     if (flippedCards.length >= 2) return;
 
     card.classList.add("card--flipped");
+    updateCardLabel(card);
     flippedCards.push(card);
 
     if (flippedCards.length === 2) {
@@ -94,6 +110,8 @@
     if (isMatch) {
       first.classList.add("card--matched");
       second.classList.add("card--matched");
+      updateCardLabel(first);
+      updateCardLabel(second);
       matchedCount++;
       flippedCards = [];
       updateStats();
@@ -107,6 +125,8 @@
       setTimeout(function () {
         first.classList.remove("card--flipped");
         second.classList.remove("card--flipped");
+        updateCardLabel(first);
+        updateCardLabel(second);
         flippedCards = [];
         boardLocked = false;
       }, 800);
@@ -116,6 +136,9 @@
   function showWin() {
     finalMoveCountEl.textContent = "Finished in " + moveCount + " moves.";
     winPanel.removeAttribute("hidden");
+    // Move focus to the win panel so screen reader / keyboard users notice the game ended
+    winPanel.setAttribute("tabindex", "-1");
+    winPanel.focus();
   }
 
   function resetGame() {
