@@ -1,0 +1,146 @@
+/* ==========================================================================
+   CARTRIDGE - MEMORY MATCH
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.game__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Board ---------- */
+.game__board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* ---------- Card ---------- */
+/* game.js toggles .card--flipped and .card--matched on click/match */
+.card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition-base);
+  transform-style: preserve-3d;
+}
+
+.card--flipped .card__inner,
+.card--matched .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  backface-visibility: hidden;
+}
+
+.card__face--back {
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-primary);
+}
+
+.card__face--front {
+  background-color: var(--color-bg-panel);
+  transform: rotateY(180deg);
+  font-size: var(--text-lg);
+}
+
+.card--matched .card__face--front {
+  border: 2px solid var(--color-accent-secondary);
+  opacity: 0.7;
+}
+
+/* ---------- Win State ---------- */
+.game__win {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.game__win-stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .game__board {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xs);
+    max-width: 340px;
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+
+  .card__face--front {
+    font-size: var(--text-base);
+  }
+  }
