@@ -1,0 +1,134 @@
+/* ==========================================================================
+   CARTRIDGE - NUMBER SLIDE
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.game__stats {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Board ---------- */
+.game__board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: var(--space-xs);
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-panel);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+}
+
+/* ---------- Tile ---------- */
+/* game.js toggles .tile--blank on the empty space */
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-base);
+  border: 2px solid var(--color-accent-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.tile:hover {
+  transform: scale(1.03);
+}
+
+.tile--blank {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Tile slide animation - transform handled via inline grid-column/row from game.js,
+   this transition smooths the visual move between grid positions */
+.tile {
+  transition: transform var(--transition-base);
+}
+
+/* ---------- Win State ---------- */
+.game__win {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.game__win-stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .game__board {
+    max-width: 320px;
+  }
+
+  .tile {
+    font-size: var(--text-base);
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+}
