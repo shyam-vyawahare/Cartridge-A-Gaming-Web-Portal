@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Slide - Cartridge</title>
+  <meta name="description" content="Slide tiles into order, 1 through 15, as fast as you can.">
+
+  <!-- Fonts: Press Start 2P (display), Space Grotesk (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Site tokens/base so the game visually matches the rest of Cartridge -->
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+
+  <!-- Game-specific styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="game">
+
+    <!-- ================= GAME HEADER ================= -->
+    <header class="game__header">
+      <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
+      <h1 class="game__title">Number Slide</h1>
+      <div class="game__stats" aria-live="polite">
+        <span class="game__stat" id="move-count">Moves: 0</span>
+      </div>
+    </header>
+
+    <!-- ================= GAME BOARD ================= -->
+    <!-- game.js renders tile elements into this grid on load -->
+    <section class="game__board" id="game-board" aria-label="Number slide puzzle grid"></section>
+
+    <!-- ================= WIN STATE ================= -->
+    <div class="game__win" id="game-win" hidden>
+      <p class="game__win-message">Solved!</p>
+      <p class="game__win-stat" id="final-move-count"></p>
+      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="game.js" defer></script>
+
+</body>
+</html>
