@@ -3,20 +3,22 @@
 
 Cartridge is a responsive, browser-based gaming platform built around an arcade-marquee identity - play puzzle and brain-teaser games instantly, browse featured web games, and (soon) unlock game solutions and curated gameplay videos.
 
+### Game Development Last updated - 22nd Aug 2026 
+
 ---
 
-## 🚧 Status: Under Development (V1 — Basic Build)
+## 🚧 Status: Under Development (V1 - Basic Build)
 
 This project is being built incrementally, one file/feature at a time. Nothing here is production-ready yet. Expect breaking changes, placeholder content, and "Coming Soon" tabs until V1 is feature-complete.
 
 ### V1 Roadmap Checklist
 
 - [x] Landing page (marquee hero, gamer-centric copy, "Play Now" CTA)
-- [ ] One-time device-detection modal (mobile vs desktop, remembered via localStorage)
+- [x] One-time device-detection modal (mobile vs desktop, remembered via localStorage)
 - [x] Dashboard - cartridge-style game tiles, sorted by category (Puzzle, Brain Teaser, Retro)
 - [x] Hover lift/glow effect on tiles (desktop only)
-- [ ] Fully responsive layout (mobile + desktop)
-- [ ] At least 1–2 playable puzzle games (in-browser)
+- [x] Fully responsive layout (mobile + desktop)
+- [x] At least 1–2 playable puzzle games (in-browser)
 - [ ] Persistent nav / tab bar across pages
 - [ ] Tab: Featured Web Games - *Coming Soon* placeholder
 - [ ] Tab: Game Solutions - *Coming Soon* placeholder
