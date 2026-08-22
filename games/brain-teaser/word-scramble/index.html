@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Scramble - Cartridge</title>
+  <meta name="description" content="Unscramble the letters to reveal the hidden word.">
+
+  <!-- Fonts: Press Start 2P (display), Space Grotesk (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Site tokens/base so the game visually matches the rest of Cartridge -->
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+
+  <!-- Game-specific styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="game">
+
+    <!-- ================= GAME HEADER ================= -->
+    <header class="game__header">
+      <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
+      <h1 class="game__title">Word Scramble</h1>
+      <div class="game__stats" aria-live="polite">
+        <span class="game__stat" id="solved-count">Solved: 0 / 10</span>
+      </div>
+    </header>
+
+    <!-- ================= GAME BOARD ================= -->
+    <section class="game__board" id="game-board" aria-label="Word scramble puzzle">
+
+      <!-- Scrambled letters as clickable tiles - game.js renders these -->
+      <div class="scramble-row" id="scramble-row"></div>
+
+      <!-- Player's current answer, built from clicked letters - game.js renders these -->
+      <div class="answer-row" id="answer-row" aria-label="Your current answer"></div>
+
+      <p class="game__feedback" id="game-feedback" aria-live="polite"></p>
+
+      <div class="game__actions">
+        <button type="button" class="btn btn--primary" id="clear-btn">Clear</button>
+        <button type="button" class="btn btn--primary" id="next-btn" hidden>Next Word</button>
+      </div>
+
+    </section>
+
+    <!-- ================= WIN STATE ================= -->
+    <div class="game__win" id="game-win" hidden>
+      <p class="game__win-message">You solved every word!</p>
+      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="game.js" defer></script>
+
+</body>
+</html>
