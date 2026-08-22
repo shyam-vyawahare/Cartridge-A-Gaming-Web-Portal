@@ -1,0 +1,147 @@
+/* ==========================================================================
+   CARTRIDGE - WORD SCRAMBLE
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.game__stats {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Board ---------- */
+.game__board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* ---------- Letter tiles (scrambled + answer rows) ---------- */
+.scramble-row,
+.answer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 64px;
+}
+
+.letter-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-primary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.letter-tile:hover {
+  transform: translateY(-3px);
+}
+
+.letter-tile--used {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.answer-row .letter-tile {
+  border-color: var(--color-accent-secondary);
+}
+
+/* Empty answer slot placeholder so the row doesn't collapse to zero height */
+.answer-row:empty::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 52px;
+  border-bottom: 2px dashed var(--color-bg-panel);
+}
+
+/* ---------- Feedback + Actions ---------- */
+.game__feedback {
+  min-height: 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-accent-secondary);
+}
+
+.game__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* ---------- Win State ---------- */
+.game__win {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .letter-tile {
+    width: 42px;
+    height: 42px;
+    font-size: var(--text-base);
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+  }
