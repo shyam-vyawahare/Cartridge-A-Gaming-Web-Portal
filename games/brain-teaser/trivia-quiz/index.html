@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia Quiz - Cartridge</title>
+  <meta name="description" content="Test your gaming knowledge across 10 multiple-choice questions.">
+
+  <!-- Fonts: Press Start 2P (display), Space Grotesk (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Site tokens/base so the game visually matches the rest of Cartridge -->
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+
+  <!-- Game-specific styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="game">
+
+    <!-- ================= GAME HEADER ================= -->
+    <header class="game__header">
+      <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
+      <h1 class="game__title">Trivia Quiz</h1>
+      <div class="game__stats" aria-live="polite">
+        <span class="game__stat" id="question-progress">Question: 1 / 10</span>
+        <span class="game__stat" id="score-count">Score: 0</span>
+      </div>
+    </header>
+
+    <!-- ================= GAME BOARD ================= -->
+    <section class="game__board" id="game-board" aria-label="Trivia question">
+
+      <p class="question-text" id="question-text"></p>
+
+      <!-- game.js renders 4 answer buttons here -->
+      <div class="answer-grid" id="answer-grid"></div>
+
+      <p class="game__feedback" id="game-feedback" aria-live="polite"></p>
+
+      <button type="button" class="btn btn--primary" id="next-btn" hidden>Next Question</button>
+
+    </section>
+
+    <!-- ================= END STATE ================= -->
+    <div class="game__win" id="game-win" hidden>
+      <p class="game__win-message">Quiz complete!</p>
+      <p class="game__win-stat" id="final-score"></p>
+      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="game.js" defer></script>
+
+</body>
+    </html>
