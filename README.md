@@ -3,7 +3,7 @@
 
 Cartridge is a responsive, browser-based gaming platform built around an arcade-marquee identity - play puzzle and brain-teaser games instantly, browse featured web games, and (soon) unlock game solutions and curated gameplay videos.
 
-### Game Development Last updated - 22nd Aug 2026 
+### Game Development Last updated - 28th Aug 2026 
 
 ---
 
