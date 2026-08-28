@@ -11,7 +11,7 @@
     "id": "puzzle-02",
     "title": "Number Slide",
     "category": "puzzle",
-    "thumbnail": "assets/images/thumbnails/placeholder.jpg",
+    "thumbnail": "assets/images/thumbnails/number-slide.jpg",
     "path": "games/puzzle/number-slide/index.html",
     "platform": "both"
   },
@@ -19,8 +19,16 @@
     "id": "brain-teaser-01",
     "title": "Word Scramble",
     "category": "brain-teaser",
-    "thumbnail": "assets/images/thumbnails/placeholder.jpg",
+    "thumbnail": "assets/images/thumbnails/word-scramble.jpg",
     "path": "games/brain-teaser/word-scramble/index.html",
+    "platform": "both"
+  },
+  {
+    "id": "brain-teaser-02",
+    "title": "Trivia Quiz",
+    "category": "brain-teaser",
+    "thumbnail": "assets/images/thumbnails/trivia-quiz.jpg",
+    "path": "games/brain-teaser/trivia-quiz/index.html",
     "platform": "both"
   }
 ]
