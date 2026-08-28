@@ -1,0 +1,159 @@
+/* ==========================================================================
+   CARTRIDGE - TRIVIA QUIZ
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.game__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Board ---------- */
+.game__board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ---------- Question ---------- */
+.question-text {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--color-text);
+  text-align: center;
+  padding: var(--space-md);
+  background-color: var(--color-bg-panel);
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+/* ---------- Answers ---------- */
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.answer-btn {
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-primary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  text-align: left;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.answer-btn:hover:not(.answer-btn--disabled) {
+  transform: translateY(-2px);
+}
+
+.answer-btn--correct {
+  border-color: var(--color-accent-secondary);
+  background-color: rgba(255, 193, 69, 0.15);
+}
+
+.answer-btn--incorrect {
+  border-color: var(--color-accent-primary);
+  background-color: rgba(255, 61, 127, 0.15);
+}
+
+.answer-btn--disabled {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ---------- Feedback ---------- */
+.game__feedback {
+  min-height: 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-accent-secondary);
+  text-align: center;
+}
+
+/* ---------- End State ---------- */
+.game__win {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.game__win-stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .answer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+
+  .question-text {
+    font-size: var(--text-base);
+  }
+}
