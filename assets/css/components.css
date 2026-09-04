@@ -105,7 +105,11 @@
 /* Category stripe - color varies by data-category attribute, set inline or via JS */
 .cartridge-tile[data-category="puzzle"] { border-top: 4px solid var(--color-accent-primary); }
 .cartridge-tile[data-category="brain-teaser"] { border-top: 4px solid var(--color-accent-secondary); }
-/* TODO: add retro category stripe color once finalized */
+
+/* Category stripe - color varies by data-category attribute, set inline or via JS */
+.cartridge-tile[data-category="puzzle"] { border-top: 4px solid var(--color-accent-primary); }
+.cartridge-tile[data-category="brain-teaser"] { border-top: 4px solid var(--color-accent-secondary); }
+.cartridge-tile[data-category="retro"] { border-top: 4px solid var(--color-text); }
 
 /* Hover lift - desktop only, gated by a .has-hover class added via JS device detection */
 .has-hover .cartridge-tile:hover {
