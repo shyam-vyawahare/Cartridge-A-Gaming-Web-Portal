@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake - Cartridge</title>
+  <meta name="description" content="Classic Snake. Eat, grow, don't hit the walls or yourself.">
+
+  <!-- Fonts: Press Start 2P (display), Space Grotesk (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Site tokens/base so the game visually matches the rest of Cartridge -->
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+
+  <!-- Game-specific styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="game">
+
+    <!-- ================= GAME HEADER ================= -->
+    <header class="game__header">
+      <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
+      <h1 class="game__title">Snake</h1>
+      <div class="game__stats" aria-live="polite">
+        <span class="game__stat" id="score-count">Score: 0</span>
+        <span class="game__stat" id="best-score">Best: 0</span>
+      </div>
+    </header>
+
+    <!-- ================= GAME BOARD ================= -->
+    <!-- game.js draws the snake/food onto this canvas each frame -->
+    <section class="game__board" id="game-board">
+      <canvas id="game-canvas" width="400" height="400" role="img" aria-label="Snake game board"></canvas>
+
+      <!-- On-screen controls for mobile/touch - keyboard arrows work too -->
+      <div class="dpad" id="dpad" aria-label="Directional controls">
+        <button type="button" class="dpad__btn dpad__btn--up" data-direction="up" aria-label="Move up">&uarr;</button>
+        <button type="button" class="dpad__btn dpad__btn--left" data-direction="left" aria-label="Move left">&larr;</button>
+        <button type="button" class="dpad__btn dpad__btn--right" data-direction="right" aria-label="Move right">&rarr;</button>
+        <button type="button" class="dpad__btn dpad__btn--down" data-direction="down" aria-label="Move down">&darr;</button>
+      </div>
+    </section>
+
+    <!-- ================= GAME OVER STATE ================= -->
+    <div class="game__win" id="game-win" hidden>
+      <p class="game__win-message">Game Over</p>
+      <p class="game__win-stat" id="final-score"></p>
+      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="game.js" defer></script>
+
+</body>
+    </html>
