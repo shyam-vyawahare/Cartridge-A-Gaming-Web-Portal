@@ -1,0 +1,137 @@
+/* ==========================================================================
+   CARTRIDGE - SNAKE
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.game__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Board ---------- */
+.game__board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+#game-canvas {
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-primary);
+  border-radius: var(--radius-md);
+  max-width: 100%;
+  touch-action: none; /* prevents scroll/zoom gestures interfering with swipe-style input later */
+}
+
+/* ---------- D-pad (mobile/touch controls) ---------- */
+/* Keyboard arrow keys work everywhere - this is a touch-friendly fallback,
+   shown always for simplicity rather than gated behind device-detect classes */
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: var(--space-xs);
+  justify-content: center;
+}
+
+.dpad__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  transition: transform var(--transition-fast);
+}
+
+.dpad__btn:hover {
+  transform: scale(1.05);
+}
+
+.dpad__btn--up { grid-column: 2; grid-row: 1; }
+.dpad__btn--left { grid-column: 1; grid-row: 2; }
+.dpad__btn--right { grid-column: 3; grid-row: 2; }
+.dpad__btn--down { grid-column: 2; grid-row: 2; }
+
+/* ---------- Game Over State ---------- */
+.game__win {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.game__win-stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  #game-canvas {
+    width: 320px;
+    height: 320px;
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(2, 48px);
+  }
+  }
