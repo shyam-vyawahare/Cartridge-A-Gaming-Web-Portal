@@ -30,5 +30,13 @@
     "thumbnail": "assets/images/thumbnails/trivia-quiz.jpg",
     "path": "games/brain-teaser/trivia-quiz/index.html",
     "platform": "both"
+  },
+  {
+    "id": "retro-01",
+    "title": "Snake",
+    "category": "retro",
+    "thumbnail": "assets/images/thumbnails/snake.jpg",
+    "path": "games/retro/snake/index.html",
+    "platform": "both"
   }
 ]
