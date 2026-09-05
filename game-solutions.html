@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Solutions - Cartridge</title>
+  <meta name="description" content="Level-by-level solutions and walkthroughs for Cartridge games, coming soon.">
+
+  <!-- Fonts: Press Start 2P (display), Space Grotesk (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets: load order matters - tokens define variables everything below depends on -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/coming-soon.css">
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <div id="site-nav"></div>
+
+  <!-- ================= DEVICE CHECK MODAL ================= -->
+  <div id="device-check-modal" class="modal" hidden>
+    <div class="modal__content">
+      <h2 class="modal__title">How are you playing?</h2>
+      <p class="modal__subtitle">We'll load games built for your device.</p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--primary" data-device="mobile">Mobile</button>
+        <button type="button" class="btn btn--primary" data-device="desktop">Desktop</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ================= PAGE HERO ================= -->
+    <!-- Same hero pattern as index.html, scaled down, explaining this tab's purpose -->
+    <section class="page-hero">
+      <p class="page-hero__eyebrow">Now Loading</p>
+      <h1 class="page-hero__title">Game Solutions</h1>
+      <p class="page-hero__description">
+        Stuck on a level? Browse game-by-game, level-by-level solutions and walkthroughs for every game on Cartridge.
+      </p>
+    </section>
+
+    <!-- ================= COMING SOON CONTENT ================= -->
+    <section class="coming-soon-panel">
+      <span class="coming-soon">Coming Soon</span>
+      <p class="coming-soon-panel__message">
+        Solutions are being written as games are added. Check back once you're stuck on something tricky.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Cartridge. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/device-detect.js" defer></script>
+
+</body>
+</html>
