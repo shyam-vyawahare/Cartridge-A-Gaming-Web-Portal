@@ -10,6 +10,7 @@
   align-items: center;
   min-height: 100vh;
   padding: var(--space-lg) var(--space-md);
+  overflow-x: hidden;
 }
 
 /* ---------- Header ---------- */
@@ -57,6 +58,7 @@
   gap: var(--space-xs);
   width: 100%;
   max-width: 400px;
+  min-width: 0;
   aspect-ratio: 1 / 1;
   background-color: var(--color-bg-panel);
   padding: var(--space-xs);
@@ -120,6 +122,10 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
+  .game {
+    padding-inline: var(--space-sm);
+  }
+
   .game__board {
     max-width: 320px;
   }

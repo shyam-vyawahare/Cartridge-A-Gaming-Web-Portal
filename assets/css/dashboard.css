@@ -9,6 +9,7 @@
 .dashboard__header {
   text-align: center;
   padding: var(--space-xl) var(--space-md) var(--space-lg);
+  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent-primary) 10%, transparent), transparent 65%);
 }
 
 .dashboard__title {
@@ -57,7 +58,7 @@
 /* ---------- Tile Grid ---------- */
 .tile-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: var(--space-md);
 }
 
@@ -79,7 +80,7 @@
   }
 
   .tile-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
     gap: var(--space-sm);
-  }
+}
   }

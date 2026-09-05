@@ -10,6 +10,7 @@
   align-items: center;
   min-height: 100vh;
   padding: var(--space-lg) var(--space-md);
+  overflow-x: hidden;
 }
 
 /* ---------- Header ---------- */
@@ -71,6 +72,7 @@
   background-color: var(--color-bg-panel);
   border-radius: var(--radius-md);
   width: 100%;
+  overflow-wrap: anywhere;
 }
 
 /* ---------- Answers ---------- */
@@ -99,12 +101,12 @@
 
 .answer-btn--correct {
   border-color: var(--color-accent-secondary);
-  background-color: rgba(255, 193, 69, 0.15);
+  background-color: color-mix(in srgb, var(--color-accent-secondary) 15%, transparent);
 }
 
 .answer-btn--incorrect {
   border-color: var(--color-accent-primary);
-  background-color: rgba(255, 61, 127, 0.15);
+  background-color: color-mix(in srgb, var(--color-accent-primary) 15%, transparent);
 }
 
 .answer-btn--disabled {
@@ -145,6 +147,13 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
+  .game {
+    padding-inline: var(--space-sm);
+  }
+
+  .answer-grid {
+    grid-template-columns: 1fr;
+  }
   .answer-grid {
     grid-template-columns: 1fr;
   }

@@ -10,6 +10,7 @@
   align-items: center;
   min-height: 100vh;
   padding: var(--space-lg) var(--space-md);
+  overflow-x: hidden;
 }
 
 /* ---------- Header ---------- */
@@ -130,6 +131,10 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
+  .game {
+    padding-inline: var(--space-sm);
+  }
+
   .game__board {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-xs);

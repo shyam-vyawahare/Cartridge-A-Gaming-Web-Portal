@@ -10,6 +10,7 @@
   align-items: center;
   min-height: 100vh;
   padding: var(--space-lg) var(--space-md);
+  overflow-x: hidden;
 }
 
 /* ---------- Header ---------- */
@@ -135,6 +136,10 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
+  .game {
+    padding-inline: var(--space-sm);
+  }
+
   .letter-tile {
     width: 42px;
     height: 42px;

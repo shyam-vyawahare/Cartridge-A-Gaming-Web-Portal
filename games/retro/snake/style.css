@@ -10,6 +10,7 @@
   align-items: center;
   min-height: 100vh;
   padding: var(--space-lg) var(--space-md);
+  overflow-x: hidden;
 }
 
 /* ---------- Header ---------- */
@@ -63,6 +64,8 @@
   border: 2px solid var(--color-accent-primary);
   border-radius: var(--radius-md);
   max-width: 100%;
+  width: min(400px, 100%);
+  height: auto;
   touch-action: none; /* prevents scroll/zoom gestures interfering with swipe-style input later */
 }
 
@@ -121,6 +124,14 @@
 
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
+  .game {
+    padding-inline: var(--space-sm);
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, minmax(44px, 56px));
+    grid-template-rows: repeat(2, minmax(44px, 56px));
+  }
   #game-canvas {
     width: 320px;
     height: 320px;

@@ -16,8 +16,8 @@
   /* Marquee lightbox glow - soft radial pink/gold behind the headline */
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 61, 127, 0.15) 0%,
-    rgba(255, 193, 69, 0.08) 35%,
+    color-mix(in srgb, var(--color-accent-primary) 15%, transparent) 0%,
+    color-mix(in srgb, var(--color-accent-secondary) 8%, transparent) 35%,
     transparent 70%
   );
 }
@@ -35,7 +35,8 @@
   font-family: var(--font-display);
   font-size: var(--text-xl);
   color: var(--color-accent-primary);
-  text-shadow: 0 0 24px rgba(255, 61, 127, 0.6);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--color-accent-primary) 60%, transparent);
+  animation: marquee-title-glow 3.2s ease-in-out infinite;
   margin-bottom: var(--space-sm);
   line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
 }
@@ -66,13 +67,9 @@
 
 /* TODO: style .feature-preview__card once dashboard tiles exist to preview here */
 
-/* ---------- Footer ---------- */
-.site-footer {
-  text-align: center;
-  padding: var(--space-md);
-  font-size: var(--text-xs);
-  color: var(--color-text);
-  opacity: 0.6;
+@keyframes marquee-title-glow {
+  0%, 100% { text-shadow: 0 0 18px color-mix(in srgb, var(--color-accent-primary) 40%, transparent); }
+  50% { text-shadow: 0 0 32px color-mix(in srgb, var(--color-accent-primary) 75%, transparent); }
 }
 
 /* ---------- Responsive ---------- */
@@ -90,4 +87,4 @@
     min-height: 70vh;
     padding: var(--space-lg) var(--space-sm);
   }
-    }
+  }

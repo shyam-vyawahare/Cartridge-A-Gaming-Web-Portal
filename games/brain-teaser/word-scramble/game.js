@@ -34,6 +34,7 @@
   let currentWordIndex = 0;
   let currentWord = "";
   let scrambledLetters = []; // array of { letter, used, tileEl }
+  let clickedOrder = [];
   let solvedCount = 0;
 
   /**
@@ -99,9 +100,8 @@
 
   function renderAnswerRow() {
     answerRow.innerHTML = "";
-    const usedEntries = scrambledLetters.filter(function (e) { return e.used; });
-
-    usedEntries.forEach(function (entry, orderIndex) {
+    clickedOrder.forEach(function (entryIndex) {
+      const entry = scrambledLetters[entryIndex];
       const tile = document.createElement("div");
       tile.className = "letter-tile";
       tile.textContent = entry.letter;
@@ -113,6 +113,7 @@
       tile.addEventListener("click", function () {
         entry.used = false;
         entry.tileEl.classList.remove("letter-tile--used");
+        clickedOrder = clickedOrder.filter(function (index) { return index !== entryIndex; });
         renderAnswerRow();
       });
 
@@ -125,15 +126,15 @@
     if (entry.used) return;
 
     entry.used = true;
+    clickedOrder.push(index);
     tile.classList.add("letter-tile--used");
     renderAnswerRow();
     checkAnswer();
   }
 
   function getCurrentAnswer() {
-    return scrambledLetters
-      .filter(function (e) { return e.used; })
-      .map(function (e) { return e.letter; })
+    return clickedOrder
+      .map(function (index) { return scrambledLetters[index].letter; })
       .join("");
   }
 
@@ -162,6 +163,7 @@
   }
 
   function clearAnswer() {
+    clickedOrder = [];
     scrambledLetters.forEach(function (entry) {
       entry.used = false;
       entry.tileEl.classList.remove("letter-tile--used");
@@ -172,6 +174,7 @@
 
   function loadWord(index) {
     currentWord = wordOrder[index];
+    clickedOrder = [];
     feedbackEl.textContent = "";
     nextBtn.setAttribute("hidden", "");
     clearBtn.removeAttribute("hidden");
