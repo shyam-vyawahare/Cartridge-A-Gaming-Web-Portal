@@ -1,0 +1,83 @@
+/* ==========================================================================
+   CARTRIDGE - COMING SOON PAGES
+   Shared layout for Featured Web Games, Game Solutions, and Gameplay tabs.
+   Each page keeps a hero-style intro (like the landing page) explaining
+   what the tab is for - only the content area below shows "Coming Soon".
+   ========================================================================== */
+
+/* ---------- Page Hero ---------- */
+/* Smaller than the landing page hero - this isn't the first thing a visitor sees */
+.page-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 61, 127, 0.12) 0%,
+    rgba(255, 193, 69, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+.page-hero__eyebrow {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.page-hero__description {
+  max-width: 520px;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Coming Soon Content Area ---------- */
+.coming-soon-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.coming-soon-panel__icon {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-bg-panel);
+  /* Decorative background glyph, purely visual weight - not meaningful content */
+}
+
+.coming-soon-panel__message {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  opacity: 0.75;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .page-hero__title {
+    font-size: var(--text-md);
+  }
+
+  .page-hero {
+    padding: var(--space-lg) var(--space-sm);
+  }
+}
