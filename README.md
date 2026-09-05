@@ -19,10 +19,10 @@ This project is being built incrementally, one file/feature at a time. Nothing h
 - [x] Hover lift/glow effect on tiles (desktop only)
 - [x] Fully responsive layout (mobile + desktop)
 - [x] At least 1–2 playable puzzle games (in-browser)
-- [ ] Persistent nav / tab bar across pages
-- [ ] Tab: Featured Web Games - *Coming Soon* placeholder
-- [ ] Tab: Game Solutions - *Coming Soon* placeholder
-- [ ] Tab: Gameplay - *Coming Soon* placeholder
+- [x] Persistent nav / tab bar across pages
+- [x] Tab: Featured Web Games - *Coming Soon* placeholder
+- [x] Tab: Game Solutions - *Coming Soon* placeholder
+- [x] Tab: Gameplay - *Coming Soon* placeholder
 - [x] `games.json` driven tile rendering (add a game without touching HTML)
 
 ---
