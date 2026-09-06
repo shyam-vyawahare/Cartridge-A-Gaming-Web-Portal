@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tetris - Cartridge</title>
+  <meta name="description" content="Classic block-stacking. Clear lines, don't top out.">
+
+  <!-- Fonts: Press Start 2P (display), Space Grotesk (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Site tokens/base so the game visually matches the rest of Cartridge -->
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+
+  <!-- Game-specific styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="game">
+
+    <!-- ================= GAME HEADER ================= -->
+    <header class="game__header">
+      <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
+      <h1 class="game__title">Tetris</h1>
+    </header>
+
+    <!-- ================= GAME LAYOUT ================= -->
+    <div class="game__layout">
+
+      <!-- Main board -->
+      <section class="game__board">
+        <canvas id="game-canvas" width="240" height="480" role="img" aria-label="Tetris game board"></canvas>
+      </section>
+
+      <!-- Side panel: next piece preview + stats -->
+      <aside class="game__sidebar">
+        <div class="game__panel">
+          <p class="game__panel-label">Next</p>
+          <canvas id="next-canvas" width="100" height="100" role="img" aria-label="Next piece preview"></canvas>
+        </div>
+        <div class="game__panel game__stats" aria-live="polite">
+          <p class="game__stat" id="score-count">Score: 0</p>
+          <p class="game__stat" id="lines-count">Lines: 0</p>
+          <p class="game__stat" id="level-count">Level: 1</p>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- On-screen controls for mobile/touch - keyboard arrows + space work too -->
+    <div class="dpad" id="dpad" aria-label="Tetris controls">
+      <button type="button" class="dpad__btn dpad__btn--rotate" data-action="rotate" aria-label="Rotate piece">&#8635;</button>
+      <button type="button" class="dpad__btn dpad__btn--left" data-action="left" aria-label="Move left">&larr;</button>
+      <button type="button" class="dpad__btn dpad__btn--down" data-action="down" aria-label="Move down">&darr;</button>
+      <button type="button" class="dpad__btn dpad__btn--right" data-action="right" aria-label="Move right">&rarr;</button>
+    </div>
+
+    <!-- ================= GAME OVER STATE ================= -->
+    <div class="game__win" id="game-win" hidden>
+      <p class="game__win-message">Game Over</p>
+      <p class="game__win-stat" id="final-score"></p>
+      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="game.js" defer></script>
+
+</body>
+</html>
