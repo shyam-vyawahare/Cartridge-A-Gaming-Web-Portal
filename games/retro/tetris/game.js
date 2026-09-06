@@ -266,9 +266,7 @@
     mergePiece();
     clearLines();
 
-    current = next;
-    current.x = Math.floor((COLS - PIECES[current.type].rotations[0][0].length) / 2);
-    current.y = -2;
+    current = spawnPiece(next.type);
     next = { type: randomType() };
 
     if (collides(current, 0, 0)) {
