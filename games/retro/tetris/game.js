@@ -131,7 +131,8 @@
       type: type,
       rotation: 0,
       x: Math.floor((COLS - width) / 2),
-      y: -2 // start slightly above the visible board so pieces drop in
+      y: 0 // spawn directly at the top of the visible board - no hidden buffer rows,
+           // so collision checks against a full board actually register
     };
   }
 
