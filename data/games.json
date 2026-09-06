@@ -38,5 +38,13 @@
     "thumbnail": "assets/images/thumbnails/snake.jpg",
     "path": "games/retro/snake/index.html",
     "platform": "both"
+  },
+  {
+    "id": "retro-02",
+    "title": "Tetris",
+    "category": "retro",
+    "thumbnail": "assets/images/thumbnails/tetris.jpg",
+    "path": "games/retro/tetris/index.html",
+    "platform": "both"
   }
 ]
