@@ -1,29 +1,31 @@
 # Cartridge 🕹️
 ### Reload your Gaming Nostalgia
 
-Cartridge is a responsive, browser-based gaming platform built around an arcade-marquee identity - play puzzle and brain-teaser games instantly, browse featured web games, and (soon) unlock game solutions and curated gameplay videos.
+Cartridge is a responsive, browser-based gaming platform built around an arcade-marquee identity - play puzzle, brain-teaser, and retro games instantly, browse featured web games, and (soon) unlock game solutions and curated gameplay videos.
 
-### Game Development Last updated - 6th of September 2026 
+### Last updated - 6th of September 2026
 
 ---
 
-## 🚧 Status: Under Development (V1 - Basic Build)
+## ✅ Status: V1 Complete
 
-This project is being built incrementally, one file/feature at a time. Nothing here is production-ready yet. Expect breaking changes, placeholder content, and "Coming Soon" tabs until V1 is feature-complete.
+V1 (Basic Build) is done - landing page, device detection, dashboard, persistent nav, six playable games across three categories, and all three "Coming Soon" stub tabs are live. Full V1 scope is preserved in git history / closed issues if you need the detailed breakdown.
 
-### V1 Roadmap Checklist
+---
 
-- [x] Landing page (marquee hero, gamer-centric copy, "Play Now" CTA)
-- [x] One-time device-detection modal (mobile vs desktop, remembered via localStorage)
-- [x] Dashboard - cartridge-style game tiles, sorted by category (Puzzle, Brain Teaser, Retro)
-- [x] Hover lift/glow effect on tiles (desktop only)
-- [x] Fully responsive layout (mobile + desktop)
-- [x] At least 1–2 playable puzzle games (in-browser)
-- [x] Persistent nav / tab bar across pages
-- [x] Tab: Featured Web Games - *Coming Soon* placeholder
-- [x] Tab: Game Solutions - *Coming Soon* placeholder
-- [x] Tab: Gameplay - *Coming Soon* placeholder
-- [x] `games.json` driven tile rendering (add a game without touching HTML)
+## 🗺️ V2 Roadmap Checklist
+
+- [x] Mobile responsiveness pass across all pages (nav, hero, dashboard grid, game boards)
+- [x] Collapsible mobile nav (hamburger/drawer), expanded nav stays on desktop
+- [ ] Full multi-column footer (brand blurb, nav links, credits) - replacing the current single-line footer
+- [ ] Stronger retro visual theme (scanline/CRT texture, pixel-style accents, marquee glow pulse)
+- [ ] Glow and hover effects across buttons, tiles, and nav (respecting `prefers-reduced-motion`)
+- [ ] Fix Word Scramble answer-ordering bug (click order not reflected in answer tiles)
+- [ ] Desktop-specific games (beyond mobile-responsive ports)
+- [ ] Featured Web Games - real external links
+- [ ] Game Solutions - game → level → solution browsing
+- [ ] Gameplay - curated playthrough/video links
+- [ ] Possible backend for accounts, saved progress, leaderboards
 
 ---
 
@@ -43,29 +45,49 @@ This project is being built incrementally, one file/feature at a time. Nothing h
 
 ---
 
-## 📁 Project Structure
+## 🎮 Games (V1)
 
+| Game | Category | Folder |
+|---|---|---|
+| Memory Match | Puzzle | `games/puzzle/memory-match/` |
+| Number Slide | Puzzle | `games/puzzle/number-slide/` |
+| Word Scramble | Brain Teaser | `games/brain-teaser/word-scramble/` |
+| Trivia Quiz | Brain Teaser | `games/brain-teaser/trivia-quiz/` |
+| Snake | Retro | `games/retro/snake/` |
+| Tetris | Retro | `games/retro/tetris/` |
+
+---
+
+## 📁 Project Structure
 ```
 gaming-website/
 ├── index.html                     # Landing page (hero + device-check modal)
-├── dashboard.html                 # Home tab — game tiles by category
+├── dashboard.html                 # Home tab - game tiles by category
 ├── featured-web-games.html        # Coming Soon
 ├── game-solutions.html            # Coming Soon
 ├── gameplay.html                  # Coming Soon
+├── vercel.json                    # Static hosting config (preserves .html URLs)
 ├── games/
-│   └── puzzle/
-│       ├── game-1/
-│       │   ├── index.html
-│       │   ├── game.js
-│       │   └── style.css
-│       └── game-2/...
+│   ├── puzzle/
+│   │   ├── memory-match/
+│   │   │   ├── index.html
+│   │   │   ├── game.js
+│   │   │   └── style.css
+│   │   └── number-slide/...
+│   ├── brain-teaser/
+│   │   ├── word-scramble/...
+│   │   └── trivia-quiz/...
+│   └── retro/
+│       ├── snake/...
+│       └── tetris/...
 ├── assets/
 │   ├── css/
 │   │   ├── tokens.css             # design tokens: color, type, spacing
 │   │   ├── base.css               # resets, global element styles
 │   │   ├── components.css         # nav, cartridge tiles, buttons, modal
 │   │   ├── landing.css
-│   │   └── dashboard.css
+│   │   ├── dashboard.css
+│   │   └── coming-soon.css        # shared layout for the 3 stub pages
 │   ├── js/
 │   │   ├── nav.js                 # injects shared header/tab-bar
 │   │   ├── device-detect.js       # device modal logic + localStorage
@@ -78,7 +100,6 @@ gaming-website/
 │   └── games.json                 # {id, title, category, thumbnail, path, platform}
 └── README.md
 ```
-
 ---
 
 ## 🛠️ Tech Stack
@@ -98,27 +119,26 @@ python3 -m http.server 8000
 # Option 2: Node (http-server)
 npx http-server .
 ```
-
-Then open `http://localhost:8000` in your browser.
-
+Then open http://localhost:8000 in your browser.
 ## 🚀 Deployment
-
-Since this is a static site, deployment is a drag-and-drop / git-push affair:
-
-- **GitHub Pages:** push to a repo, enable Pages on the `main` branch
-- **Netlify / Vercel:** connect the repo, no build command needed (or set output directory to root)
-
-## 🗺️ Future Versions (Post-V1)
-
-- Desktop-specific games (beyond mobile-responsive ports)
-- Featured Web Games - real external links
-- Game Solutions - game → level → solution browsing
-- Gameplay - curated playthrough/video links
-- Possible backend for accounts, saved progress, leaderboards
-
----
+Live on Vercel as a zero-build static site. vercel.json at the project root keeps .html extensions in URLs (cleanUrls: false, trailingSlash: false) so nav.js's active-tab detection keeps working correctly.
+Via GitHub (auto-deploys on push):
+Push to a GitHub repo (project root = repo root)
+Vercel dashboard → Add New Project → import the repo
+Framework Preset: Other, Build Command: none, Output Directory: .
+Deploy
+Via CLI:
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
+Also deployable as-is on GitHub Pages or Netlify with no config changes.
 
 ## 🤝 Contributing / Development Notes
-
 This repo is being built one file at a time as a learning + portfolio project. Structure and naming may shift as features are added - check this README's roadmap checklist for current status before assuming a feature exists.
 
+# Bought to you by 👨🏻‍💻
+## Shyam K. V.
+AI and Full Stack Developer.
+© All rights reserved 2026.
