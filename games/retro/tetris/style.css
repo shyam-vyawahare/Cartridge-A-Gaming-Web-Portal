@@ -1,0 +1,177 @@
+/* ==========================================================================
+   CARTRIDGE - TETRIS
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+}
+
+/* ---------- Layout: board + sidebar ---------- */
+.game__layout {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+#game-canvas {
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-primary);
+  border-radius: var(--radius-md);
+  max-width: 100%;
+  touch-action: none;
+}
+
+.game__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 120px;
+}
+
+.game__panel {
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  text-align: center;
+}
+
+.game__panel-label {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+#next-canvas {
+  width: 100%;
+  height: auto;
+}
+
+.game__stats {
+  text-align: left;
+}
+
+.game__stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  opacity: 0.85;
+  margin-bottom: var(--space-xs);
+}
+
+.game__stat:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- D-pad (mobile/touch controls) ---------- */
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: var(--space-xs);
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.dpad__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  transition: transform var(--transition-fast);
+}
+
+.dpad__btn:hover {
+  transform: scale(1.05);
+}
+
+.dpad__btn--rotate { grid-column: 2; grid-row: 1; }
+.dpad__btn--left { grid-column: 1; grid-row: 2; }
+.dpad__btn--down { grid-column: 2; grid-row: 2; }
+.dpad__btn--right { grid-column: 3; grid-row: 2; }
+
+/* ---------- Game Over State ---------- */
+.game__win {
+  text-align: center;
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.game__win-stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 500px) {
+  .game__layout {
+    gap: var(--space-sm);
+  }
+
+  #game-canvas {
+    width: 180px;
+    height: 360px;
+  }
+
+  .game__sidebar {
+    width: 90px;
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, 46px);
+    grid-template-rows: repeat(2, 46px);
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+}
