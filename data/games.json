@@ -46,5 +46,13 @@
     "thumbnail": "assets/images/thumbnails/tetris.jpg",
     "path": "games/retro/tetris/index.html",
     "platform": "both"
+  },
+  {
+    "id": "retro-03",
+    "title": "Space Invaders",
+    "category": "retro",
+    "thumbnail": "assets/images/thumbnails/space-invaders.jpg",
+    "path": "games/retro/space-invaders/index.html",
+    "platform": "both"
   }
 ]
