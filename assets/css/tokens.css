@@ -7,13 +7,12 @@
 
 :root {
 
-  /* ---------- Color ---------- */
-  --color-bg-base:        #1A1633; /* Deep Indigo — base background / cabinet shadow */
-  --color-bg-panel:       #241E45; /* Panel Purple — cards / surfaces */
-  --color-accent-primary: #FF3D7F; /* Marquee Pink — primary accent, CTAs */
-  --color-accent-secondary: #FFC145; /* Marquee Gold — secondary accent, highlights, "new" */
-  --color-text:           #F2EFFF; /* Lavender White — body text */
-
+/* ---------- Color ---------- */
+  --color-bg-base:        #1A1633; /* Deep Indigo - base background / cabinet shadow */
+  --color-bg-panel:       #241E45; /* Panel Purple - cards / surfaces */
+  --color-accent-primary: #FF3D7F; /* Marquee Pink - primary accent, CTAs */
+  --color-accent-secondary: #FFC145; /* Marquee Gold - secondary accent, highlights, "new" */
+  --color-text:           #F2EFFF; /* Lavender White - text */
   /* TODO: add category stripe colors once retro category palette is finalized
      e.g. --color-category-puzzle, --color-category-brain-teaser, --color-category-retro */
 
