@@ -103,6 +103,38 @@ h3 { font-size: var(--text-lg); }
   }
 }
 
+/* ---------- CRT Overlay: scanlines + vignette ---------- */
+/* Purely decorative, sits above all content but never blocks interaction */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-bg-base) 100%, transparent) 0px,
+      transparent 1px,
+      transparent 2px,
+      color-mix(in srgb, black 20%, transparent) 3px
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      color-mix(in srgb, var(--color-bg-base) 55%, transparent) 100%
+    );
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    /* Vignette alone still applies - only the flicker-prone scanline repeat is softened */
+    opacity: 0.2;
+  }
+}
+
 /* ---------- Utility ---------- */
 .visually-hidden {
   position: absolute;
