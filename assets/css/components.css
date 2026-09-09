@@ -150,11 +150,11 @@
   border-top: 4px solid var(--tile-accent);
 }
 
-/* Hover lift - desktop only, gated by a .has-hover class added via JS device detection */
+/* Hover lift + glow - desktop only, color matches each tile's category accent */
 .has-hover .cartridge-tile:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 24px color-mix(in srgb, var(--color-bg-base) 70%, transparent),
-    0 0 24px color-mix(in srgb, var(--color-accent-primary) 35%, transparent);
+    0 0 24px color-mix(in srgb, var(--tile-accent, var(--color-accent-primary)) 40%, transparent);
 }
 
 .cartridge-tile[data-category="brain-teaser"] {
