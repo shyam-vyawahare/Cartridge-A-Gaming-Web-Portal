@@ -150,6 +150,25 @@
   border-top: 4px solid var(--tile-accent);
 }
 
+/* Pixel-art corner accents - small L-shaped brackets, HUD/retro-UI styling */
+.cartridge-tile::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  opacity: 0.7;
+  background:
+    linear-gradient(var(--tile-accent, var(--color-accent-secondary)) 0 0) top left / 10px 3px no-repeat,
+    linear-gradient(var(--tile-accent, var(--color-accent-secondary)) 0 0) top left / 3px 10px no-repeat,
+    linear-gradient(var(--tile-accent, var(--color-accent-secondary)) 0 0) bottom right / 10px 3px no-repeat,
+    linear-gradient(var(--tile-accent, var(--color-accent-secondary)) 0 0) bottom right / 3px 10px no-repeat;
+  transition: opacity var(--transition-fast);
+}
+
+.has-hover .cartridge-tile:hover::after {
+  opacity: 1;
+}
+
 /* Hover lift + glow - desktop only, color matches each tile's category accent */
 .has-hover .cartridge-tile:hover {
   transform: translateY(-6px);
