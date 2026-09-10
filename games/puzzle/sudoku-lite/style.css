@@ -1,0 +1,180 @@
+/* ==========================================================================
+   CARTRIDGE - SUDOKU LITE
+   Game-specific styling. Uses site tokens (colors, type, spacing) so this
+   still feels like part of Cartridge, not a bolted-on external game.
+   ========================================================================== */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* ---------- Header ---------- */
+.game__header {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.game__back {
+  display: inline-block;
+  font-family: var(--font-utility);
+  font-size: var(--text-xs);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.game__back:hover {
+  text-decoration: underline;
+}
+
+.game__title {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-accent-primary);
+  line-height: 1.4; /* Press Start 2P needs extra line-height, tight default clips descenders */
+  margin-bottom: var(--space-sm);
+}
+
+.game__stats {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+/* ---------- Board ---------- */
+/* 6x6 grid, split visually into 2x3 boxes via thicker borders */
+.game__board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 2px;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-panel);
+  border: 3px solid var(--color-accent-primary);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Cell ---------- */
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-base);
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.cell--given {
+  color: var(--color-accent-secondary);
+  cursor: default;
+}
+
+.cell--selected {
+  background-color: color-mix(in srgb, var(--color-accent-primary) 25%, var(--color-bg-base));
+}
+
+.cell--error {
+  color: var(--color-accent-primary);
+}
+
+/* Thicker borders every 3 columns / 2 rows to mark the 2x3 sub-box boundaries */
+.cell:nth-child(3n) {
+  border-right: 2px solid var(--color-accent-secondary);
+}
+
+.cell:nth-child(6n) {
+  border-right: none;
+}
+
+.cell:nth-child(n+13):nth-child(-n+18) {
+  border-bottom: 2px solid var(--color-accent-secondary);
+}
+
+/* ---------- Number Picker ---------- */
+.number-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  justify-content: center;
+  max-width: 360px;
+}
+
+.number-picker__btn {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-bg-panel);
+  border: 2px solid var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--color-text);
+  transition: transform var(--transition-fast);
+}
+
+.number-picker__btn:hover {
+  transform: translateY(-2px);
+}
+
+.number-picker__btn--clear {
+  width: auto;
+  padding: 0 var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  border-color: var(--color-accent-primary);
+}
+
+/* ---------- Win State ---------- */
+.game__win {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.game__win-message {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.game__win-stat {
+  font-family: var(--font-utility);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 420px) {
+  .game__board {
+    max-width: 300px;
+  }
+
+  .cell {
+    font-size: var(--text-base);
+  }
+
+  .number-picker__btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .game__title {
+    font-size: var(--text-base);
+  }
+}
