@@ -16,6 +16,14 @@
     "platform": "both"
   },
   {
+    "id": "puzzle-03",
+    "title": "Sudoku-Lite",
+    "category": "puzzle",
+    "thumbnail": "assets/images/thumbnails/sudoku-lite.jpg",
+    "path": "games/puzzle/sudoku-lite/index.html",
+    "platform": "both"
+  },
+  {
     "id": "brain-teaser-01",
     "title": "Word Scramble",
     "category": "brain-teaser",
