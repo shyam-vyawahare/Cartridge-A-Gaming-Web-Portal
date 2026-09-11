@@ -41,10 +41,31 @@
 }
 
 .game__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
   font-family: var(--font-utility);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--color-text);
   opacity: 0.85;
+}
+
+/* ---------- Start Overlay ---------- */
+.start-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+}
+
+.start-overlay__message {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  opacity: 0.8;
 }
 
 /* ---------- Board ---------- */
@@ -83,6 +104,11 @@
   cursor: default;
 }
 
+.cell--hint {
+  color: var(--color-text);
+  cursor: default;
+}
+
 .cell--selected {
   background-color: color-mix(in srgb, var(--color-accent-primary) 25%, var(--color-bg-base));
 }
@@ -91,16 +117,14 @@
   color: var(--color-accent-primary);
 }
 
-/* Thicker borders every 3 columns / 2 rows to mark the 2x3 sub-box boundaries */
-.cell:nth-child(3n) {
+/* Box boundaries: a 6x6 grid split into 2x3 boxes (2 rows tall, 3 cols wide) -
+   vertical divider after column 3, horizontal dividers after rows 2 and 4 */
+.cell:nth-child(3n):not(:nth-child(6n)) {
   border-right: 2px solid var(--color-accent-secondary);
 }
 
-.cell:nth-child(6n) {
-  border-right: none;
-}
-
-.cell:nth-child(n+13):nth-child(-n+18) {
+.cell:nth-child(n+7):nth-child(-n+12),
+.cell:nth-child(n+19):nth-child(-n+24) {
   border-bottom: 2px solid var(--color-accent-secondary);
 }
 
@@ -111,11 +135,15 @@
   gap: var(--space-xs);
   justify-content: center;
   max-width: 360px;
+  margin-bottom: var(--space-sm);
 }
 
 .number-picker__btn {
   width: 44px;
   height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-bg-panel);
   border: 2px solid var(--color-accent-secondary);
   border-radius: var(--radius-sm);
@@ -131,11 +159,20 @@
 }
 
 .number-picker__btn--clear {
-  width: auto;
-  padding: 0 var(--space-sm);
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
   border-color: var(--color-accent-primary);
+  font-size: var(--text-lg);
+}
+
+/* ---------- Secondary Actions ---------- */
+.game__actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.game__actions .btn {
+  font-size: var(--text-xs);
+  padding: var(--space-xs) var(--space-md);
 }
 
 /* ---------- Win State ---------- */
