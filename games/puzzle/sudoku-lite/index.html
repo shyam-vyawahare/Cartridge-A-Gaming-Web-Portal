@@ -27,31 +27,46 @@
     <header class="game__header">
       <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
       <h1 class="game__title">Sudoku Lite</h1>
-      <div class="game__stats" aria-live="polite">
-        <span class="game__stat" id="mistake-count">Mistakes: 0</span>
+      <div class="game__stats" aria-live="off">
+        <span class="game__stat" id="timer-display">Time: 00:00</span>
+        <span class="game__stat" id="mistake-count" aria-live="polite">Mistakes: 0</span>
+        <span class="game__stat" id="hint-count" aria-live="polite">Hints: 3 left</span>
       </div>
     </header>
 
+    <!-- ================= START OVERLAY ================= -->
+    <!-- Shown before play begins - timer only starts once the player clicks Start -->
+    <div class="start-overlay" id="start-overlay">
+      <p class="start-overlay__message">A fresh 6x6 puzzle is ready.</p>
+      <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+    </div>
+
     <!-- ================= GAME BOARD ================= -->
-    <!-- game.js renders the 6x6 grid of cells here -->
-    <section class="game__board" id="game-board" aria-label="Sudoku 6 by 6 grid"></section>
+    <!-- game.js renders the 6x6 grid of cells here - hidden until Start is pressed -->
+    <section class="game__board" id="game-board" aria-label="Sudoku 6 by 6 grid" hidden></section>
 
     <!-- Number picker - tap a cell, then tap a number to fill it -->
-    <div class="number-picker" id="number-picker" aria-label="Number picker">
+    <div class="number-picker" id="number-picker" aria-label="Number picker" hidden>
       <button type="button" class="number-picker__btn" data-number="1">1</button>
       <button type="button" class="number-picker__btn" data-number="2">2</button>
       <button type="button" class="number-picker__btn" data-number="3">3</button>
       <button type="button" class="number-picker__btn" data-number="4">4</button>
       <button type="button" class="number-picker__btn" data-number="5">5</button>
       <button type="button" class="number-picker__btn" data-number="6">6</button>
-      <button type="button" class="number-picker__btn number-picker__btn--clear" data-number="0">Clear</button>
+      <button type="button" class="number-picker__btn number-picker__btn--clear" data-number="0">&times;</button>
+    </div>
+
+    <!-- Secondary actions - hint reveals a correct number, reset clears entries without touching the timer -->
+    <div class="game__actions" id="game-actions" hidden>
+      <button type="button" class="btn btn--primary" id="hint-btn">Hint</button>
+      <button type="button" class="btn btn--primary" id="reset-btn">Reset</button>
     </div>
 
     <!-- ================= WIN STATE ================= -->
     <div class="game__win" id="game-win" hidden>
       <p class="game__win-message">Solved!</p>
-      <p class="game__win-stat" id="final-mistakes"></p>
-      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+      <p class="game__win-stat" id="final-stats"></p>
+      <button type="button" class="btn btn--primary" id="restart-btn">New Puzzle</button>
     </div>
 
   </main>
