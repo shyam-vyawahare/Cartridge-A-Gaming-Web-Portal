@@ -84,6 +84,12 @@
   opacity: 0.8;
 }
 
+/* Explicit override: [hidden] must always win over any display rule below,
+   since JS relies on toggling this attribute to show/hide game sections */
+[hidden] {
+  display: none !important;
+}
+
 /* ---------- Board ---------- */
 /* 6x6 grid, split visually into 2x3 boxes via thicker borders */
 .game__board {
