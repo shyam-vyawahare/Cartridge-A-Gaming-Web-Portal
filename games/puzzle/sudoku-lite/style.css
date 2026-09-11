@@ -40,15 +40,31 @@
   margin-bottom: var(--space-sm);
 }
 
+/* ---------- Stats bar ---------- */
 .game__stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: var(--space-sm);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-bg-base);
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 2px solid var(--color-bg-panel);
   font-family: var(--font-utility);
   font-size: var(--text-xs);
   color: var(--color-text);
   opacity: 0.85;
+}
+
+.game__timer {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--color-accent-secondary);
+  opacity: 1;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--color-accent-secondary) 50%, transparent);
 }
 
 /* ---------- Start Overlay ---------- */
