@@ -34,15 +34,27 @@
       </div>
     </header>
 
+    <!-- ================= START OVERLAY ================= -->
+    <div class="start-overlay" id="start-overlay">
+      <div class="start-overlay__content">
+        <p class="start-overlay__message">Slide tiles into order as fast as you can</p>
+        <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+      </div>
+    </div>
+
     <!-- ================= GAME BOARD ================= -->
     <!-- game.js renders tile elements into this grid on load -->
-    <section class="game__board" id="game-board" aria-label="Number slide puzzle grid"></section>
+    <section class="game__board" id="game-board" aria-label="Number slide puzzle grid" hidden></section>
 
-    <!-- ================= WIN STATE ================= -->
-    <div class="game__win" id="game-win" hidden>
-      <p class="game__win-message">Solved!</p>
-      <p class="game__win-stat" id="final-move-count"></p>
-      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    <!-- ================= GAME OVER MODAL ================= -->
+    <div class="modal" id="game-modal" hidden>
+      <div class="modal__content">
+        <h2 class="modal__title">Solved!</h2>
+        <p class="modal__subtitle" id="final-move-count"></p>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--primary" id="try-again-btn">Try Again</button>
+        </div>
+      </div>
     </div>
 
   </main>

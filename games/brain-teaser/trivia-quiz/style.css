@@ -145,6 +145,34 @@
   margin-bottom: var(--space-md);
 }
 
+/* ---------- Start Overlay ---------- */
+.start-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.start-overlay__content {
+  text-align: center;
+}
+
+.start-overlay__message {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.start-overlay[hidden] {
+  display: none !important;
+}
+
+/* ---------- Modal ---------- */
+.modal[hidden] {
+  display: none !important;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 480px) {
   .game {

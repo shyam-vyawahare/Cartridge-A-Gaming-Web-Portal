@@ -13,9 +13,11 @@
   const board = document.getElementById("game-board");
   const moveCountEl = document.getElementById("move-count");
   const matchCountEl = document.getElementById("match-count");
-  const winPanel = document.getElementById("game-win");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameModal = document.getElementById("game-modal");
   const finalMoveCountEl = document.getElementById("final-move-count");
-  const restartBtn = document.getElementById("restart-btn");
+  const newGameBtn = document.getElementById("new-game-btn");
 
   let flippedCards = [];
   let matchedCount = 0;
@@ -135,10 +137,9 @@
 
   function showWin() {
     finalMoveCountEl.textContent = "Finished in " + moveCount + " moves.";
-    winPanel.removeAttribute("hidden");
-    // Move focus to the win panel so screen reader / keyboard users notice the game ended
-    winPanel.setAttribute("tabindex", "-1");
-    winPanel.focus();
+    gameModal.removeAttribute("hidden");
+    gameModal.setAttribute("tabindex", "-1");
+    gameModal.focus();
   }
 
   function resetGame() {
@@ -146,9 +147,15 @@
     matchedCount = 0;
     moveCount = 0;
     boardLocked = false;
-    winPanel.setAttribute("hidden", "");
+    gameModal.setAttribute("hidden", "");
+    startOverlay.setAttribute("hidden", "");
+    board.removeAttribute("hidden");
     updateStats();
     renderBoard();
+  }
+
+  function startGame() {
+    resetGame();
   }
 
   function renderBoard() {
@@ -159,7 +166,10 @@
     });
   }
 
-  restartBtn.addEventListener("click", resetGame);
+  startBtn.addEventListener("click", startGame);
+  newGameBtn.addEventListener("click", function () {
+    resetGame();
+  });
 
   // Init
   updateStats();

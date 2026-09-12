@@ -11,9 +11,11 @@
 
   const board = document.getElementById("game-board");
   const moveCountEl = document.getElementById("move-count");
-  const winPanel = document.getElementById("game-win");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameModal = document.getElementById("game-modal");
   const finalMoveCountEl = document.getElementById("final-move-count");
-  const restartBtn = document.getElementById("restart-btn");
+  const tryAgainBtn = document.getElementById("try-again-btn");
 
   let tiles = []; // flat array of length 16, values 0-15 (0 = blank)
   let moveCount = 0;
@@ -151,20 +153,29 @@
 
   function showWin() {
     finalMoveCountEl.textContent = "Solved in " + moveCount + " moves.";
-    winPanel.removeAttribute("hidden");
-    winPanel.setAttribute("tabindex", "-1");
-    winPanel.focus();
+    gameModal.removeAttribute("hidden");
+    gameModal.setAttribute("tabindex", "-1");
+    gameModal.focus();
   }
 
   function resetGame() {
     moveCount = 0;
-    winPanel.setAttribute("hidden", "");
+    gameModal.setAttribute("hidden", "");
+    startOverlay.setAttribute("hidden", "");
+    board.removeAttribute("hidden");
     updateStats();
     tiles = generateSolvableShuffle();
     renderBoard();
   }
 
-  restartBtn.addEventListener("click", resetGame);
+  function startGame() {
+    resetGame();
+  }
+
+  startBtn.addEventListener("click", startGame);
+  tryAgainBtn.addEventListener("click", function () {
+    resetGame();
+  });
 
   // Init
   tiles = generateSolvableShuffle();

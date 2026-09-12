@@ -27,8 +27,10 @@
   const solvedCountEl = document.getElementById("solved-count");
   const clearBtn = document.getElementById("clear-btn");
   const nextBtn = document.getElementById("next-btn");
-  const restartBtn = document.getElementById("restart-btn");
-  const winPanel = document.getElementById("game-win");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameModal = document.getElementById("game-modal");
+  const newGameBtn = document.getElementById("new-game-btn");
 
   let wordOrder = [];
   let currentWordIndex = 0;
@@ -194,23 +196,32 @@
   }
 
   function showWin() {
-    winPanel.removeAttribute("hidden");
-    winPanel.setAttribute("tabindex", "-1");
-    winPanel.focus();
+    gameModal.removeAttribute("hidden");
+    gameModal.setAttribute("tabindex", "-1");
+    gameModal.focus();
   }
 
   function resetGame() {
     wordOrder = shuffle(WORDS);
     currentWordIndex = 0;
     solvedCount = 0;
-    winPanel.setAttribute("hidden", "");
+    gameModal.setAttribute("hidden", "");
+    startOverlay.setAttribute("hidden", "");
+    document.getElementById("game-board").removeAttribute("hidden");
     updateStats();
     loadWord(0);
   }
 
+  function startGame() {
+    resetGame();
+  }
+
   clearBtn.addEventListener("click", clearAnswer);
   nextBtn.addEventListener("click", goToNextWord);
-  restartBtn.addEventListener("click", resetGame);
+  startBtn.addEventListener("click", startGame);
+  newGameBtn.addEventListener("click", function () {
+    resetGame();
+  });
 
   // Init
   resetGame();

@@ -34,8 +34,16 @@
       </div>
     </header>
 
+    <!-- ================= START OVERLAY ================= -->
+    <div class="start-overlay" id="start-overlay">
+      <div class="start-overlay__content">
+        <p class="start-overlay__message">Unscramble the letters to reveal the hidden word</p>
+        <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+      </div>
+    </div>
+
     <!-- ================= GAME BOARD ================= -->
-    <section class="game__board" id="game-board" aria-label="Word scramble puzzle">
+    <section class="game__board" id="game-board" aria-label="Word scramble puzzle" hidden>
 
       <!-- Scrambled letters as clickable tiles - game.js renders these -->
       <div class="scramble-row" id="scramble-row"></div>
@@ -52,10 +60,15 @@
 
     </section>
 
-    <!-- ================= WIN STATE ================= -->
-    <div class="game__win" id="game-win" hidden>
-      <p class="game__win-message">You solved every word!</p>
-      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    <!-- ================= WIN STATE MODAL ================= -->
+    <div class="modal" id="game-modal" hidden>
+      <div class="modal__content">
+        <h2 class="modal__title">You Win!</h2>
+        <p class="modal__subtitle">You solved every word!</p>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--primary" id="new-game-btn">New Game</button>
+        </div>
+      </div>
     </div>
 
   </main>

@@ -35,9 +35,17 @@
       </div>
     </header>
 
+    <!-- ================= START OVERLAY ================= -->
+    <div class="start-overlay" id="start-overlay">
+      <div class="start-overlay__content">
+        <p class="start-overlay__message">Eat, grow, and survive as long as you can</p>
+        <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+      </div>
+    </div>
+
     <!-- ================= GAME BOARD ================= -->
     <!-- game.js draws the snake/food onto this canvas each frame -->
-    <section class="game__board" id="game-board">
+    <section class="game__board" id="game-board" hidden>
       <canvas id="game-canvas" width="400" height="400" role="img" aria-label="Snake game board"></canvas>
 
       <!-- On-screen controls for mobile/touch - keyboard arrows work too -->
@@ -49,11 +57,15 @@
       </div>
     </section>
 
-    <!-- ================= GAME OVER STATE ================= -->
-    <div class="game__win" id="game-win" hidden>
-      <p class="game__win-message">Game Over</p>
-      <p class="game__win-stat" id="final-score"></p>
-      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    <!-- ================= GAME OVER MODAL ================= -->
+    <div class="modal" id="game-modal" hidden>
+      <div class="modal__content">
+        <h2 class="modal__title">Game Over</h2>
+        <p class="modal__subtitle" id="final-score"></p>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--primary" id="try-again-btn">Try Again</button>
+        </div>
+      </div>
     </div>
 
   </main>
