@@ -16,9 +16,12 @@
   const ctx = canvas.getContext("2d");
   const scoreCountEl = document.getElementById("score-count");
   const bestScoreEl = document.getElementById("best-score");
-  const winPanel = document.getElementById("game-win");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameBoard = document.getElementById("game-board");
+  const gameModal = document.getElementById("game-modal");
   const finalScoreEl = document.getElementById("final-score");
-  const restartBtn = document.getElementById("restart-btn");
+  const tryAgainBtn = document.getElementById("try-again-btn");
   const dpad = document.getElementById("dpad");
 
   let snake = [];
@@ -161,32 +164,50 @@
     }
 
     finalScoreEl.textContent = "Final score: " + score;
-    winPanel.removeAttribute("hidden");
-    winPanel.setAttribute("tabindex", "-1");
-    winPanel.focus();
+    gameModal.removeAttribute("hidden");
+    gameModal.setAttribute("tabindex", "-1");
+    gameModal.focus();
     updateStats();
   }
 
-  function resetGame() {
+  function resetGameState() {
     snake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
     direction = { x: 1, y: 0 };
     pendingDirection = { x: 1, y: 0 };
     score = 0;
     gameOver = false;
-    winPanel.setAttribute("hidden", "");
+    gameModal.setAttribute("hidden", "");
     spawnFood();
     updateStats();
     draw();
 
     if (loopId) clearInterval(loopId);
+  }
+
+  function startGameLoop() {
     loopId = setInterval(tick, INITIAL_SPEED_MS);
+  }
+
+  function startGame() {
+    startOverlay.setAttribute("hidden", "");
+    gameBoard.removeAttribute("hidden");
+    resetGameState();
+    startGameLoop();
+  }
+
+  function resetGame() {
+    startOverlay.removeAttribute("hidden");
+    gameBoard.setAttribute("hidden", "");
+    gameModal.setAttribute("hidden", "");
+    resetGameState();
   }
 
   document.addEventListener("keydown", handleKeydown);
   dpad.addEventListener("click", handleDpadClick);
-  restartBtn.addEventListener("click", resetGame);
+  startBtn.addEventListener("click", startGame);
+  tryAgainBtn.addEventListener("click", resetGame);
 
   // Init
   bestScore = loadBestScore();
-  resetGame();
+  resetGameState();
 })();

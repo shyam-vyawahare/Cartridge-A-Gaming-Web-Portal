@@ -27,9 +27,11 @@
   const questionProgressEl = document.getElementById("question-progress");
   const scoreCountEl = document.getElementById("score-count");
   const nextBtn = document.getElementById("next-btn");
-  const restartBtn = document.getElementById("restart-btn");
-  const winPanel = document.getElementById("game-win");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameModal = document.getElementById("game-modal");
   const finalScoreEl = document.getElementById("final-score");
+  const newGameBtn = document.getElementById("new-game-btn");
 
   let questionOrder = [];
   let currentIndex = 0;
@@ -115,21 +117,30 @@
 
   function showEndScreen() {
     finalScoreEl.textContent = "Final score: " + score + " / " + questionOrder.length;
-    winPanel.removeAttribute("hidden");
-    winPanel.setAttribute("tabindex", "-1");
-    winPanel.focus();
+    gameModal.removeAttribute("hidden");
+    gameModal.setAttribute("tabindex", "-1");
+    gameModal.focus();
   }
 
   function resetGame() {
     questionOrder = shuffle(QUESTIONS);
     currentIndex = 0;
     score = 0;
-    winPanel.setAttribute("hidden", "");
+    gameModal.setAttribute("hidden", "");
+    startOverlay.setAttribute("hidden", "");
+    document.getElementById("game-board").removeAttribute("hidden");
     renderQuestion();
   }
 
+  function startGame() {
+    resetGame();
+  }
+
   nextBtn.addEventListener("click", goToNextQuestion);
-  restartBtn.addEventListener("click", resetGame);
+  startBtn.addEventListener("click", startGame);
+  newGameBtn.addEventListener("click", function () {
+    resetGame();
+  });
 
   // Init
   resetGame();

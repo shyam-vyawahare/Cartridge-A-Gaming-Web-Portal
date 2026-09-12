@@ -35,8 +35,16 @@
       </div>
     </header>
 
+    <!-- ================= START OVERLAY ================= -->
+    <div class="start-overlay" id="start-overlay">
+      <div class="start-overlay__content">
+        <p class="start-overlay__message">Test your gaming knowledge in this trivia quiz</p>
+        <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+      </div>
+    </div>
+
     <!-- ================= GAME BOARD ================= -->
-    <section class="game__board" id="game-board" aria-label="Trivia question">
+    <section class="game__board" id="game-board" aria-label="Trivia question" hidden>
 
       <p class="question-text" id="question-text"></p>
 
@@ -49,11 +57,15 @@
 
     </section>
 
-    <!-- ================= END STATE ================= -->
-    <div class="game__win" id="game-win" hidden>
-      <p class="game__win-message">Quiz complete!</p>
-      <p class="game__win-stat" id="final-score"></p>
-      <button type="button" class="btn btn--primary" id="restart-btn">Play Again</button>
+    <!-- ================= WIN STATE MODAL ================= -->
+    <div class="modal" id="game-modal" hidden>
+      <div class="modal__content">
+        <h2 class="modal__title">You Win!</h2>
+        <p class="modal__subtitle" id="final-score"></p>
+        <div class="modal__actions">
+          <button type="button" class="btn btn--primary" id="new-game-btn">New Game</button>
+        </div>
+      </div>
     </div>
 
   </main>
