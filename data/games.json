@@ -40,6 +40,14 @@
     "platform": "both"
   },
   {
+    "id": "brain-teaser-03",
+    "title": "Hangman",
+    "category": "brain-teaser",
+    "thumbnail": "assets/images/thumbnails/hangman.jpg",
+    "path": "games/brain-teaser/hangman/index.html",
+    "platform": "both"
+  },
+  {
     "id": "retro-01",
     "title": "Snake",
     "category": "retro",
