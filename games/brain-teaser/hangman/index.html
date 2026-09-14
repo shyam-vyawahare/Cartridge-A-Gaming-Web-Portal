@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman - Cartridge</title>
+  <meta name="description" content="Guess the word one letter at a time before you run out of attempts.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../../assets/css/base.css">
+  <link rel="stylesheet" href="../../../assets/css/components.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="game">
+
+    <header class="game__header">
+      <a href="../../../dashboard.html" class="game__back">&larr; Back to Dashboard</a>
+      <h1 class="game__title">Hangman</h1>
+      <div class="game__stats" aria-live="polite">
+        <span class="game__stat" id="attempts-left">Attempts: 6</span>
+      </div>
+    </header>
+
+    <!-- ================= START OVERLAY ================= -->
+    <div class="start-overlay" id="start-overlay">
+      <p class="start-overlay__message">A word is waiting to be guessed.</p>
+      <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+    </div>
+
+    <!-- ================= GAME BOARD ================= -->
+    <section class="game__board" id="game-board" hidden>
+      <canvas id="game-canvas" width="200" height="220" role="img" aria-label="Hangman figure"></canvas>
+
+      <p class="word-display" id="word-display" aria-live="polite"></p>
+
+      <div class="keyboard" id="keyboard" aria-label="Letter keyboard"></div>
+    </section>
+
+  </main>
+
+  <!-- ================= RESULT MODAL ================= -->
+  <div class="modal" id="result-modal" hidden>
+    <div class="modal__content">
+      <h2 class="modal__title" id="result-title"></h2>
+      <p class="modal__subtitle" id="result-message"></p>
+      <div class="modal__actions">
+        <button type="button" class="btn btn--primary" id="result-btn"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js" defer></script>
+
+</body>
+</html>
