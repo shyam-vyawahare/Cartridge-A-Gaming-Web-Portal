@@ -37,6 +37,9 @@
   const finalScoreEl = document.getElementById("final-score");
   const restartBtn = document.getElementById("restart-btn");
   const controls = document.getElementById("controls");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameBoard = document.getElementById("game-board");
 
   let player = null;
   let invaders = [];
@@ -53,6 +56,7 @@
   let moveRight = false;
   let lastFrameTime = 0;
   let animationFrameId = null;
+  let hasStarted = false;
 
   function getToken(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -331,9 +335,18 @@
     updateStats();
     draw();
 
-    if (animationFrameId) cancelAnimationFrame(animationFrameId);
-    lastFrameTime = performance.now();
-    animationFrameId = requestAnimationFrame(loop);
+    if (hasStarted) {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      lastFrameTime = performance.now();
+      animationFrameId = requestAnimationFrame(loop);
+    }
+  }
+
+  function beginPlay() {
+    hasStarted = true;
+    startOverlay.setAttribute("hidden", "");
+    gameBoard.removeAttribute("hidden");
+    resetGame();
   }
 
   document.addEventListener("keydown", handleKeydown);
@@ -350,6 +363,7 @@
     handleControlsUp(event);
   });
   restartBtn.addEventListener("click", resetGame);
+  startBtn.addEventListener("click", beginPlay);
 
   // Init
   resetGame();

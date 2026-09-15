@@ -33,8 +33,13 @@
       </div>
     </header>
 
+    <div class="start-overlay" id="start-overlay">
+      <p class="start-overlay__message">Defend Earth from the incoming fleet.</p>
+      <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+    </div>
+
     <!-- ================= GAME BOARD ================= -->
-    <section class="game__board" id="game-board">
+    <section class="game__board" id="game-board" hidden>
       <canvas id="game-canvas" width="400" height="450" role="img" aria-label="Space Invaders game board"></canvas>
 
       <!-- On-screen controls for mobile/touch - keyboard arrows + space work too -->

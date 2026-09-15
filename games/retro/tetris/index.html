@@ -29,8 +29,13 @@
       <h1 class="game__title">Tetris</h1>
     </header>
 
+    <div class="start-overlay" id="start-overlay">
+      <p class="start-overlay__message">Stack blocks and clear lines.</p>
+      <button type="button" class="btn btn--primary" id="start-btn">Start</button>
+    </div>
+
     <!-- ================= GAME LAYOUT ================= -->
-    <div class="game__layout">
+    <div class="game__layout" id="game-board" hidden>
 
       <!-- Main board -->
       <section class="game__board">
@@ -53,7 +58,7 @@
     </div>
 
     <!-- On-screen controls for mobile/touch - keyboard arrows + space work too -->
-    <div class="dpad" id="dpad" aria-label="Tetris controls">
+    <div class="dpad" id="dpad" aria-label="Tetris controls" hidden>
       <button type="button" class="dpad__btn dpad__btn--rotate" data-action="rotate" aria-label="Rotate piece">&#8635;</button>
       <button type="button" class="dpad__btn dpad__btn--left" data-action="left" aria-label="Move left">&larr;</button>
       <button type="button" class="dpad__btn dpad__btn--down" data-action="down" aria-label="Move down">&darr;</button>

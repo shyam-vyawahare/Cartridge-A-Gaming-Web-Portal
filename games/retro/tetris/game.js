@@ -25,6 +25,9 @@
   const finalScoreEl = document.getElementById("final-score");
   const restartBtn = document.getElementById("restart-btn");
   const dpad = document.getElementById("dpad");
+  const startOverlay = document.getElementById("start-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const gameBoard = document.getElementById("game-board");
 
   // Each piece: 4 rotation states, each a 4x4 grid of 0/1 (classic SRS-style layouts)
   const PIECES = {
@@ -103,6 +106,7 @@
   let level = 1;
   let dropIntervalId = null;
   let gameOver = false;
+  let hasStarted = false;
 
   function getToken(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -384,12 +388,21 @@
 
     updateStats();
     draw();
-    restartDropInterval();
+    if (hasStarted) restartDropInterval();
+  }
+
+  function beginPlay() {
+    hasStarted = true;
+    startOverlay.setAttribute("hidden", "");
+    gameBoard.removeAttribute("hidden");
+    dpad.removeAttribute("hidden");
+    resetGame();
   }
 
   document.addEventListener("keydown", handleKeydown);
   dpad.addEventListener("click", handleDpadClick);
   restartBtn.addEventListener("click", resetGame);
+  startBtn.addEventListener("click", beginPlay);
 
   // Init
   resetGame();

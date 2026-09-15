@@ -25,6 +25,13 @@
     tile.setAttribute("data-category", game.category);
     tile.setAttribute("href", game.path);
 
+    tile.addEventListener("click", function (event) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+      event.preventDefault();
+      showCoinInsertion(game.path);
+    });
+
     const thumbnail = document.createElement("img");
     thumbnail.className = "cartridge-tile__thumbnail";
     thumbnail.src = game.thumbnail;
@@ -39,6 +46,23 @@
     tile.appendChild(label);
 
     return tile;
+  }
+
+  function showCoinInsertion(destination) {
+    const overlay = document.createElement("div");
+    overlay.className = "coin-insert-overlay";
+    overlay.setAttribute("role", "status");
+    overlay.setAttribute("aria-live", "polite");
+    overlay.innerHTML =
+      '<div class="coin-machine">' +
+        '<div class="coin-machine__screen">Loading cartridge</div>' +
+        '<div class="coin-machine__slot"><span class="coin-machine__coin" aria-hidden="true"></span></div>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+    window.setTimeout(function () {
+      window.location.href = destination;
+    }, 900);
   }
 
   /**
